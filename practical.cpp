@@ -71,7 +71,8 @@ public:
         //-----------------------------------------------------------------------------------------------
         // -> increase the vitality of the hero by x
         //INSERT CODE HERE - START
-
+		x += getVitality();
+		setVitality(x);
         //INSERT CODE HERE - END
         //-----------------------------------------------------------------------------------------------
     }
@@ -81,7 +82,8 @@ public:
         //-----------------------------------------------------------------------------------------------
         // -> increase the attack of the hero by x
         //INSERT CODE HERE - START
-
+		x += getAttack();
+		setAttack(x);
         //INSERT CODE HERE - END
         //-----------------------------------------------------------------------------------------------
     }
@@ -91,7 +93,8 @@ public:
         //-----------------------------------------------------------------------------------------------
         // -> increase the defense of the hero by x
         //INSERT CODE HERE - START
-
+		x += getDefense();
+		setDefense(x);
         //INSERT CODE HERE - END
         //-----------------------------------------------------------------------------------------------
     }
@@ -129,7 +132,11 @@ int main()
             // -> 'damage' is calculated by subtracting the monster's defense from the hero's attack
             // -> if the negative computed 'damage' is negative, it should be set to zero
             //INSERT CODE HERE - START
-
+				damage = hero.getAttack() - monster.getDefense();
+				if (damage < 0) 
+					damage == 0;
+				i = monster.getVitality() - damage;	
+				monster.setVitality(i);
             //INSERT CODE HERE - END
             //-------------------------------------------------------------------------------------------
             cout << "The hero deals " << damage << " damage to the monster!\n";
@@ -138,7 +145,7 @@ int main()
             //-------------------------------------------------------------------------------------------
             // -> calls the correct method and increases the vitality of the hero by 'healAmount'
             //INSERT CODE HERE - START
-
+			hero.healUp(healAmount);
             //INSERT CODE HERE - END
             //-------------------------------------------------------------------------------------------
             cout << "The hero heals " << healAmount << " hp!\n";
@@ -147,7 +154,7 @@ int main()
             //-------------------------------------------------------------------------------------------
             // -> calls the correct method and increases the attack of the hero by 'buffAttackAmount'
             //INSERT CODE HERE - START
-
+			hero.buffWeapon(buffAttackAmount);
             //INSERT CODE HERE - END
             //-------------------------------------------------------------------------------------------
             cout << "The hero's attack increased by " << buffAttackAmount << " points!\n";
@@ -156,7 +163,7 @@ int main()
             //-------------------------------------------------------------------------------------------
             // -> calls the correct method and increases the defense of the hero by 'buffDefenseAmount'
             //INSERT CODE HERE - START
-
+			hero.buffArmor(buffDefenseAmount);
             //INSERT CODE HERE - END
             //-------------------------------------------------------------------------------------------
             cout << "The hero's defense increased by " << buffDefenseAmount << " points!\n";
@@ -171,22 +178,25 @@ int main()
         // -> 'damage' is calculated by subtracting the hero's defense from the monster's attack
         // -> if the negative computed 'damage' is negative, it should be set to zero
         //INSERT CODE HERE - START
-
+		damage = monster.getAttack() - hero.getDefense();
+		if (damage < 0) damage == 0;
+		i = hero.getVitality() - damage;	
+		hero.setVitality(i);
         //INSERT CODE HERE - END
         //---------------------------------------------------------------------------------------------------
         cout << "The monster deals " << damage << " damage to the hero!\n";
 
-        if (/*INSERT CODE HERE*/)
+        if (monster.getVitality() == 0 && hero.getVitality() == 0)
         {
             cout << "\nThe battle ended in a DRAW!";
             return 0;
         }
-        else if (/*INSERT CODE HERE*/)
+        else if (monster.getVitality() == 0 && hero.getVitality() > 0)
         {
             cout << "\nThe hero WINS the battle!";
             return 0;
         }
-        else if (/*INSERT CODE HERE*/)
+        else if (monster.getVitality() > 0 && hero.getVitality() == 0)
         {
             cout << "\nThe hero LOSES the battle!";
             return 0;
