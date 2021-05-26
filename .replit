@@ -1,0 +1,2 @@
+language = "cpp"
+run = "clang++ -std=c++11 -lm -ggdb practical.cpp -o main; ./main"
