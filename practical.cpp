@@ -187,7 +187,7 @@ int main()
         //---------------------------------------------------------------------------------------------------
         cout << "The monster deals " << damage << " damage to the hero!\n";
 
-        if (monster.getVitality() == 0 && hero.getVitality() == 0)
+        if (monster.getVitality() <= 0 && hero.getVitality() <= 0)
         {
             cout << "\nThe battle ended in a DRAW!";
             return 0;
