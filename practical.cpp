@@ -134,7 +134,7 @@ int main()
             //INSERT CODE HERE - START
 				damage = hero.getAttack() - monster.getDefense();
 				if (damage < 0) 
-					damage == 0;
+					damage = 0;
 				i = monster.getVitality() - damage;	
 				monster.setVitality(i);
             //INSERT CODE HERE - END
@@ -179,7 +179,8 @@ int main()
         // -> if the negative computed 'damage' is negative, it should be set to zero
         //INSERT CODE HERE - START
 		damage = monster.getAttack() - hero.getDefense();
-		if (damage < 0) damage == 0;
+		if (damage < 0) 
+			damage = 0;
 		i = hero.getVitality() - damage;	
 		hero.setVitality(i);
         //INSERT CODE HERE - END
