@@ -84,7 +84,7 @@ public:
         //INSERT CODE HERE - START
 		x += getAttack();
 		setAttack(x);
-        //INSERT CODE HERE - END
+        //INSERT CODE HERE - END 
         //-----------------------------------------------------------------------------------------------
     }
 
